@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUMEN Signature — دليل الثيم | Theme Guide</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="دليل إعداد ثيم LUMEN Signature لمتاجر سلة — Setup guide for the LUMEN Signature Salla theme.">
+<style>
+  @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 500; font-display: swap; src: url('fonts/IBMPlexSansArabic-Medium.ttf') format('truetype'); }
+  @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 700; font-display: swap; src: url('fonts/IBMPlexSansArabic-Bold.ttf') format('truetype'); }
+  /* LUMEN storefront palette: always dark, off-white text, gold accent (the hero badge). */
+  :root {
+    color-scheme: dark;
+    --bg: #0b0b0b; --surface: #141414; --text: #f5f3ef; --muted: #a9a7a2; --line: #262626;
+    --accent: #d9b26a; --accent-soft: rgba(217, 178, 106, .12); --code: #1d1d1d;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  section.lang-block, h2, h3 { scroll-margin-top: 76px; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 500 16px/1.8 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif; }
+  header.top { position: sticky; top: 0; z-index: 5; background: rgba(11, 11, 11, .92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .bar { max-width: 960px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .brand { font-weight: 700; letter-spacing: .32em; font-size: 15px; }
+  .lang { display: flex; gap: 8px; }
+  .lang a { color: var(--text); text-decoration: none; padding: 5px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; }
+  .lang a[aria-current="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .lang a:focus-visible, main a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  main { max-width: 960px; margin: 0 auto; padding: 8px 16px 72px; }
+  section.lang-block[hidden] { display: none; }
+  h1 { font-size: clamp(26px, 5vw, 34px); line-height: 1.35; margin: 32px 0 8px; font-weight: 700; }
+  h1::after { content: ''; display: block; width: 56px; height: 2px; background: var(--accent); margin-top: 14px; }
+  h2 { font-size: 21px; font-weight: 700; margin: 44px 0 10px; padding-top: 22px; border-top: 1px solid var(--line); }
+  h3 { font-size: 17px; font-weight: 700; margin: 22px 0 6px; }
+  .lead { color: var(--muted); margin: 0 0 22px; }
+  nav.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; }
+  nav.toc ol { margin: 8px 0 0; padding-inline-start: 22px; columns: 2; column-gap: 32px; }
+  @media (max-width: 640px) { nav.toc ol { columns: 1; } }
+  main a { color: var(--accent); text-underline-offset: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; font-size: 15px; }
+  th, td { border: 1px solid var(--line); padding: 9px 12px; text-align: start; vertical-align: top; }
+  th { background: var(--surface); font-weight: 700; }
+  code { background: var(--code); color: var(--text); padding: 1px 7px; border-radius: 6px; font-size: .9em; direction: ltr; unicode-bidi: isolate; }
+  .note { background: var(--accent-soft); border-inline-start: 3px solid var(--accent); padding: 12px 16px; border-radius: 8px; margin: 14px 0; }
+  .steps li { margin-bottom: 4px; }
+  [lang="ar"] ol { list-style-type: arabic-indic; }
+  .table-wrap { overflow-x: auto; }
+  footer.foot { border-top: 1px solid var(--line); margin-top: 56px; padding-top: 18px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <span class="brand">LUMEN</span>
+    <span class="lang">
+      <a href="#ar" id="to-ar" aria-current="true">العربية</a>
+      <a href="#en" id="to-en" lang="en">English</a>
+    </span>
+  </div>
+</header>
+
+<main>
+<!-- ============================== العربية ============================== -->
+<section class="lang-block" id="ar" lang="ar" dir="rtl">
+  <h1>دليل ثيم LUMEN Signature</h1>
+  <p class="lead">ثيم داكن فاخر بطابع سينمائي لمتاجر الأزياء على منصة سلة، مصمم للجوال أولاً وبالعربية من اليمين إلى اليسار مع دعم الإنجليزية. يشرح هذا الدليل التثبيت والإعداد من محرر الثيم.</p>
+
+  <nav class="toc" aria-label="المحتويات">
+    <strong>المحتويات</strong>
+    <ol>
+      <li><a href="#ar-install">التثبيت</a></li>
+      <li><a href="#ar-editor">محرر الثيم</a></li>
+      <li><a href="#ar-general">الإعدادات العامة</a></li>
+      <li><a href="#ar-home">أقسام الصفحة الرئيسية</a></li>
+      <li><a href="#ar-hero">البنر الرئيسي</a></li>
+      <li><a href="#ar-categories">تسوّق حسب الفئة والروابط داخل الصفحة</a></li>
+      <li><a href="#ar-collections">تشكيلات المنتجات</a></li>
+      <li><a href="#ar-caps">عرض الكابات</a></li>
+      <li><a href="#ar-socks">عرض الشراريب</a></li>
+      <li><a href="#ar-look">أكمل إطلالتك</a></li>
+      <li><a href="#ar-product">صفحة المنتج ودليل المقاسات</a></li>
+      <li><a href="#ar-contact">بيانات التواصل</a></li>
+      <li><a href="#ar-whatsapp">زر واتساب</a></li>
+      <li><a href="#ar-footer">أسفل الصفحة وطرق الدفع</a></li>
+      <li><a href="#ar-lang">العربية والإنجليزية</a></li>
+      <li><a href="#ar-apps">تطبيقات سلة</a></li>
+      <li><a href="#ar-checklist">قائمة التحقق قبل الإطلاق</a></li>
+      <li><a href="#ar-support">الدعم</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="ar-install">١. التثبيت</h2>
+  <ol class="steps">
+    <li>من لوحة تحكم متجرك في سلة افتح متجر الثيمات واختر <strong>LUMEN Signature</strong>.</li>
+    <li>ثبّت الثيم، ثم افتح <strong>تخصيص الثيم</strong> للوصول إلى محرر الثيم.</li>
+    <li>عدّل الإعدادات والأقسام كما في هذا الدليل، وعاين التغييرات قبل تفعيل الثيم على متجرك.</li>
+  </ol>
+  <p class="note">يعتمد الثيم على بيانات متجرك في سلة (المنتجات، التصنيفات، القوائم، طرق الدفع). لا يضيف منتجات أو أسعاراً من تلقاء نفسه.</p>
+
+  <h2 id="ar-editor">٢. محرر الثيم</h2>
+  <p>يحتوي محرر الثيم على قسمين:</p>
+  <ul>
+    <li><strong>إعدادات الثيم</strong>: خيارات عامة تُطبَّق على المتجر كله (رأس الصفحة، أسفلها، صفحة المنتج، التواصل، واتساب، دليل المقاسات).</li>
+    <li><strong>الصفحة الرئيسية</strong>: أضف الأقسام ورتّبها بالسحب، وعدّل حقول كل قسم. الحقول التي بجانبها علامة اللغة تُكتب بالعربية والإنجليزية.</li>
+  </ul>
+
+  <h2 id="ar-general">٣. الإعدادات العامة</h2>
+  <div class="table-wrap"><table>
+    <tr><th>المجموعة</th><th>الإعداد</th><th>الوصف</th></tr>
+    <tr><td>بطاقة المنتج</td><td>شكل بطاقة المنتج</td><td>عمودي أو أفقي.</td></tr>
+    <tr><td>بطاقة المنتج</td><td>شكل صورة بطاقة المنتج</td><td>حسب شكل الصورة، مربعة (1:1)، أفقية (4:3) أو طولية (3:4).</td></tr>
+    <tr><td>رأس الصفحة</td><td>تخطيط رأس الصفحة</td><td>المبسّط (Lite) أو الافتراضي (Default).</td></tr>
+    <tr><td>رأس الصفحة</td><td>القائمة في سطر واحد مع «المزيد»، معلومات المتجر، تثبيت القائمة عند التمرير، شريط علوي داكن، روابط الصفحات الهامة</td><td>مفاتيح تشغيل وإيقاف.</td></tr>
+    <tr><td>الصفحة الرئيسية</td><td>طريقة عرض الصور في قسم قائمة العناصر، الوضع العمودي للمنتجات الثابتة، زر «الكل»</td><td>خيارات عرض للأقسام.</td></tr>
+    <tr><td>صفحة المنتج</td><td>مسار التنقل، إشعار الإضافة للسلة، «أعلمني عند التوفر» في البطاقة، تثبيت زر الإضافة أسفل شاشة الجوال، لوحة خيارات قابلة للطي، الوسوم، طريقة عرض صور المنتج، تكبير الصور</td><td>انظر <a href="#ar-product">صفحة المنتج</a>.</td></tr>
+  </table></div>
+
+  <h2 id="ar-home">٤. أقسام الصفحة الرئيسية</h2>
+  <p>أقسام خاصة بالثيم:</p>
+  <div class="table-wrap"><table>
+    <tr><th>القسم في المحرر</th><th>الاستخدام</th></tr>
+    <tr><td>صور متحركة (محسنة)</td><td>البنر الرئيسي — <a href="#ar-hero">التفاصيل</a>.</td></tr>
+    <tr><td>صور مربعة (محسنة)</td><td>«تسوّق حسب الفئة» — <a href="#ar-categories">التفاصيل</a>.</td></tr>
+    <tr><td>تشكيلة منتجات</td><td>بنر تشكيلة مع ما يصل إلى ٤ بطاقات منتجات — <a href="#ar-collections">التفاصيل</a>.</td></tr>
+    <tr><td>عرض الكابات</td><td>صورتا عارضين وملصقان ترويجيان — <a href="#ar-caps">التفاصيل</a>.</td></tr>
+    <tr><td>عرض الشراريب</td><td>مجموعتان من الشراريب بصور الحملة والألوان — <a href="#ar-socks">التفاصيل</a>.</td></tr>
+    <tr><td>بنر أكمل إطلالتك</td><td>صورة إطلالة مع قطعها — <a href="#ar-look">التفاصيل</a>.</td></tr>
+    <tr><td>منتجات مميزة، عرض خاص + منتجات، منتج مميز + منتجات</td><td>تبويبات منتجات (مثل «الأكثر طلباً»).</td></tr>
+    <tr><td>صور متحركة مع نصوص، روابط سريعة، منتجات متحركة مع خلفية، الماركات التجارية، آراء عملاء مخصصة، المدونة</td><td>أقسام إضافية حسب حاجة المتجر.</td></tr>
+  </table></div>
+  <p>وأقسام سلة الأساسية المدعومة: مميزات المتجر، والمنتجات الثابتة، وسلايدر المنتجات، وسلايدر الصور، والبنرات الثابتة، وآراء العملاء، ويوتيوب، والصور المربعة، والصورة بتأثير الحركة (Parallax).</p>
+
+  <h2 id="ar-hero">٥. البنر الرئيسي — «صور متحركة (محسنة)»</h2>
+  <p>لكل شريحة الحقول التالية:</p>
+  <ul>
+    <li><strong>صورة البنر</strong>، و<strong>صورة حملة عريضة</strong> (تملأ البنر بالكامل)، و<strong>صورة الجوال</strong> (اختياري)، و<strong>فيديو الخلفية</strong> (اختياري).</li>
+    <li><strong>عنوان رئيسي</strong>، و<strong>شارة ذهبية</strong> (اختياري، مثل «كميات محدودة»)، و<strong>نص إضافي</strong>.</li>
+    <li><strong>نص الزر</strong> و<strong>رابط الزر</strong> — يمكن أن يكون رابطاً لتصنيف أو منتج، أو قسماً في الصفحة نفسها مثل <code>#hoodies-collection</code>.</li>
+    <li><strong>إزالة طبقة التعتم</strong> عند استخدام صورة فاتحة بنصوص مدمجة.</li>
+  </ul>
+  <p>على الجوال تظهر الصورة في الأعلى والنصوص أسفلها حتى لا تتداخل. خيارا القسم: <strong>داخل الحاوية</strong> و<strong>تشغيل تلقائي</strong>.</p>
+
+  <h2 id="ar-categories">٦. تسوّق حسب الفئة والروابط داخل الصفحة</h2>
+  <p>قسم <strong>صور مربعة (محسنة)</strong>: عنوان، ومعرّف للقسم، وبطاقات لكل منها صورة وعنوان ونص ورابط. اجعل رابط البطاقة تصنيفاً في سلة، أو قسماً في الصفحة.</p>
+  <h3>الروابط داخل الصفحة</h3>
+  <ol class="steps">
+    <li>في القسم الهدف (مثل «تشكيلة منتجات») اكتب في حقل <strong>معرّف القسم</strong> كلمة بالإنجليزية بلا مسافات، مثل <code>hoodies-collection</code>.</li>
+    <li>في البطاقة أو زر البنر اكتب الرابط <code>#hoodies-collection</code>. عند الضغط تنتقل الصفحة إلى القسم بسلاسة.</li>
+  </ol>
+
+  <h2 id="ar-collections">٧. تشكيلات المنتجات — «تشكيلة منتجات»</h2>
+  <ul>
+    <li><strong>العنوان</strong> و<strong>نص إضافي</strong> و<strong>معرّف القسم</strong>.</li>
+    <li><strong>البنر</strong>: يُعرض كاملاً بنسبته دون قص، مع <strong>وصف البنر لقارئات الشاشة</strong>.</li>
+    <li><strong>شكل بطاقات المنتجات</strong>: عمودي 4:5 لصور النصف العلوي، أو طويل 2:3 لصور الجسم كاملاً.</li>
+    <li><strong>المنتجات</strong> (حتى ٤): اسم، وصورة العارض، ورابط صفحة المنتج.</li>
+  </ul>
+  <p>استخدم القسم أكثر من مرة لتشكيلات مختلفة (مثلاً البلوفرات ثم البناطيل).</p>
+
+  <h2 id="ar-caps">٨. عرض الكابات</h2>
+  <p>عنوان، ونص، ومعرّف القسم، وكابين كحدٍّ أقصى، لكل كاب: <strong>الاسم</strong>، و<strong>صورة العارض</strong> (عمودية والكاب في أعلاها)، و<strong>الملصق الترويجي</strong> (يُعرض كاملاً دون قص)، و<strong>الرابط</strong>.</p>
+
+  <h2 id="ar-socks">٩. عرض الشراريب</h2>
+  <p>يعرض مجموعتين من الشراريب كحدٍّ أقصى، كل مجموعة في بطاقة مستقلة (لا تجمع مجموعتين في بطاقة واحدة):</p>
+  <ul>
+    <li><strong>اسم المجموعة</strong> (مثل AWAY أو MAKE THE FUTURE).</li>
+    <li><strong>صورة الحملة</strong>: تُعرض كاملة بنسبة 3:2 دون قص (مثل 1536×1024 بكسل)، مع <strong>وصف الصورة لقارئات الشاشة</strong>.</li>
+    <li><strong>الألوان</strong>: اختر من أسود، كحلي، رمادي، أبيض؛ تظهر كدوائر بأسمائها تحت الصورة على الجوال والأجهزة اللوحية.</li>
+    <li><strong>الرابط</strong>: اختر نوع الرابط <strong>منتج</strong> ثم منتج المجموعة، أو تصنيفها في سلة. عندها يظهر في البطاقة زر «تسوّق الآن».</li>
+  </ul>
+  <p class="note">إذا تُرك الرابط فارغاً تظهر البطاقة بعبارة «قريبًا» دون انتقال، ولا يظهر سعر أو مخزون. أضف الرابط فقط بعد إنشاء المنتج فعلاً في سلة.</p>
+
+  <h2 id="ar-look">١٠. أكمل إطلالتك</h2>
+  <p>عنوان، ونص، ونص الزر ورابطه، وصورة خلفية (أو صور)، وعنوان قائمة القطع، ثم <strong>القطع</strong>: لكل قطعة اسم وصورة وموضع الصورة ورابط المنتج.</p>
+
+  <h2 id="ar-product">١١. صفحة المنتج ودليل المقاسات</h2>
+  <ul>
+    <li><strong>معرض الصور</strong>: صور المنتج مع نقاط على الجوال ومصغّرات على سطح المكتب، وعرض بملء الشاشة عند الضغط. اختر طريقة عرض الصور (تغطية أو إظهار كامل) وتكبير الصور من الإعدادات.</li>
+    <li><strong>شريط الإضافة للسلة على الجوال</strong>: السعر والكمية وزر «أضف إلى السلة» مثبّتة أسفل الشاشة (إعداد «تثبيت زر الإضافة والكمية»).</li>
+    <li><strong>الخيارات</strong>: تُعرض في لوحة قابلة للطي، وخيار المقاس يظهر كأزرار.</li>
+    <li>زر <strong>أعلمني عند التوفر</strong> في بطاقات المنتجات النافدة، و<strong>الوسوم</strong>، و<strong>مسار التنقل</strong> — كلها من الإعدادات.</li>
+  </ul>
+  <h3>دليل المقاسات</h3>
+  <ol class="steps">
+    <li>في إعدادات الثيم → <strong>دليل المقاسات</strong> اختر تصنيفات البلوفرات وتصنيفات البناطيل.</li>
+    <li>أدخل القياسات بالسنتيمتر لكل مقاس (S، M، L، XL): للبلوفرات الصدر والطول والكتف والكم، وللبناطيل الخصر والورك والطول.</li>
+    <li>يظهر رابط «تأكد من مقاسك» بجانب عنوان المقاس في منتجات هذه التصنيفات. اترك الحقول فارغة حتى تتوفر قياساتك الفعلية.</li>
+  </ol>
+
+  <h2 id="ar-contact">١٢. بيانات التواصل</h2>
+  <p>في إعدادات الثيم → <strong>بيانات التواصل</strong>:</p>
+  <ul>
+    <li><strong>رقم الجوال للتواصل</strong> بالصيغة الدولية (مثل <code>+9665XXXXXXXX</code>).</li>
+    <li><strong>البريد الإلكتروني للتواصل</strong>.</li>
+  </ul>
+  <p>تظهر في عمود «تواصل معنا» أسفل الصفحة، وفي الشريط العلوي على سطح المكتب عند اختيار تخطيط رأس الصفحة «الافتراضي»، وفي قائمة «حسابي» على الجوال، بروابط اتصال وبريد مباشرة. إذا مُسح الحقل تُستخدم بيانات التواصل المسجلة في إعدادات متجرك في سلة.</p>
+  <p class="note">حدّث أيضاً بيانات التواصل في إعدادات المتجر في سلة، لأنها تُستخدم في الفواتير ورسائل الطلبات وصفحة الدفع.</p>
+
+  <h2 id="ar-whatsapp">١٣. زر واتساب</h2>
+  <ul>
+    <li><strong>إظهار زر واتساب العائم</strong>: تشغيل أو إيقاف.</li>
+    <li><strong>رقم واتساب خدمة العملاء</strong>: الأرقام فقط بالصيغة الدولية دون <code>+</code> (مثل <code>9665XXXXXXXX</code>).</li>
+  </ul>
+  <p>يظهر الزر باللون الأخضر في زاوية الشاشة ويفتح محادثة واتساب. يبتعد تلقائياً عن العناوين والأزرار وشريط الإضافة للسلة حتى لا يغطيها. يظهر الرقم نفسه في بيانات التواصل.</p>
+
+  <h2 id="ar-footer">١٤. أسفل الصفحة وطرق الدفع</h2>
+  <ul>
+    <li>أعمدة: وصف المتجر، «روابط مهمة» (من قائمة أسفل الصفحة في سلة)، «تواصل معنا».</li>
+    <li><strong>طرق الدفع</strong>: تظهر شعارات وأسماء الطرق المفعّلة في متجرك فقط، وتُحدَّث تلقائياً من سلة. إن لم تُفعَّل أي طريقة لا يظهر القسم.</li>
+  </ul>
+
+  <h2 id="ar-lang">١٥. العربية والإنجليزية</h2>
+  <p>الثيم بالعربية (من اليمين إلى اليسار) ويدعم الإنجليزية. لعرض الإنجليزية فعّل اللغة الإنجليزية في إعدادات متجرك في سلة، ثم املأ الحقول الإنجليزية في أقسام المحرر.</p>
+
+  <h2 id="ar-apps">١٦. تطبيقات سلة</h2>
+  <p>يحتوي الثيم على نقاط الربط (HookSlots) في الصفحة الرئيسية وصفحة المنتج والسلة والبحث ورأس الصفحة وأسفلها، فتعمل تطبيقات سلة التي تضيف محتوى في هذه الأماكن.</p>
+
+  <h2 id="ar-checklist">١٧. قائمة التحقق قبل الإطلاق</h2>
+  <ul>
+    <li>☐ صور البنر والتشكيلات مرفوعة، والنصوص والشارة مكتوبة بالعربية والإنجليزية.</li>
+    <li>☐ روابط البطاقات والأزرار تعمل (تصنيفات، منتجات، أو <code>#معرّف</code>).</li>
+    <li>☐ روابط عرض الشراريب تشير إلى منتجات موجودة، أو متروكة فارغة لعرض «قريبًا».</li>
+    <li>☐ بيانات التواصل ورقم واتساب صحيحة.</li>
+    <li>☐ طرق الدفع مفعّلة في سلة.</li>
+    <li>☐ المعاينة على الجوال وسطح المكتب.</li>
+  </ul>
+
+  <h2 id="ar-support">١٨. الدعم</h2>
+  <ul>
+    <li>البريد: <a href="mailto:lumen.sa@outlook.sa">lumen.sa@outlook.sa</a></li>
+    <li>الجوال: <a href="tel:+966582367110" dir="ltr">+966 58 236 7110</a></li>
+    <li>واتساب: <a href="https://wa.me/966582367110">wa.me/966582367110</a></li>
+    <li>الموقع: <a href="https://salla.sa/Lumen-0">salla.sa/Lumen-0</a></li>
+  </ul>
+  <p>نرد خلال يومي عمل.</p>
+</section>
+
+<!-- ============================== English ============================== -->
+<section class="lang-block" id="en" lang="en" dir="ltr" hidden>
+  <h1>LUMEN Signature Theme Guide</h1>
+  <p class="lead">A dark, cinematic luxury theme for fashion stores on Salla, built mobile-first, Arabic right-to-left with English support. This guide covers installation and setup in the theme editor.</p>
+
+  <nav class="toc" aria-label="Contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#en-install">Installation</a></li>
+      <li><a href="#en-editor">The theme editor</a></li>
+      <li><a href="#en-general">General settings</a></li>
+      <li><a href="#en-home">Home page sections</a></li>
+      <li><a href="#en-hero">Main banner</a></li>
+      <li><a href="#en-categories">Shop by category and in-page links</a></li>
+      <li><a href="#en-collections">Product collections</a></li>
+      <li><a href="#en-caps">Caps showcase</a></li>
+      <li><a href="#en-socks">Socks showcase</a></li>
+      <li><a href="#en-look">Complete your look</a></li>
+      <li><a href="#en-product">Product page and size guide</a></li>
+      <li><a href="#en-contact">Contact details</a></li>
+      <li><a href="#en-whatsapp">WhatsApp button</a></li>
+      <li><a href="#en-footer">Footer and payment methods</a></li>
+      <li><a href="#en-lang">Arabic and English</a></li>
+      <li><a href="#en-apps">Salla apps</a></li>
+      <li><a href="#en-checklist">Pre-launch checklist</a></li>
+      <li><a href="#en-support">Support</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="en-install">1. Installation</h2>
+  <ol class="steps">
+    <li>In your Salla dashboard, open the theme store and choose <strong>LUMEN Signature</strong>.</li>
+    <li>Install the theme, then open <strong>Customize theme</strong> to reach the theme editor.</li>
+    <li>Set it up as described here and preview your changes before activating the theme on your store.</li>
+  </ol>
+  <p class="note">The theme uses your Salla store data (products, categories, menus, payment methods). It never adds products or prices by itself.</p>
+
+  <h2 id="en-editor">2. The theme editor</h2>
+  <ul>
+    <li><strong>Theme settings</strong>: store-wide options (header, footer, product page, contact details, WhatsApp, size guide).</li>
+    <li><strong>Home page</strong>: add sections, drag to reorder, and fill in each section's fields. Fields with a language marker take Arabic and English text.</li>
+  </ul>
+
+  <h2 id="en-general">3. General settings</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Group</th><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Product card</td><td>Product card layout</td><td>Vertical or horizontal.</td></tr>
+    <tr><td>Product card</td><td>Product card image shape</td><td>Image's own shape, square (1:1), landscape (4:3) or portrait (3:4).</td></tr>
+    <tr><td>Header</td><td>Header layout</td><td>Lite or Default.</td></tr>
+    <tr><td>Header</td><td>One-line menu with "More", store info, sticky menu on scroll, dark top bar, important page links</td><td>On/off switches.</td></tr>
+    <tr><td>Home page</td><td>Image display in the items list section, vertical fixed products, "All" button</td><td>Display options for sections.</td></tr>
+    <tr><td>Product page</td><td>Breadcrumbs, improved add-to-cart toast, "Notify me" on cards, sticky add-to-cart on phones, collapsible options panel, tags, gallery image fit, image zoom</td><td>See <a href="#en-product">Product page</a>.</td></tr>
+  </table></div>
+
+  <h2 id="en-home">4. Home page sections</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Section in the editor</th><th>Use</th></tr>
+    <tr><td>Enhanced animated images</td><td>The main banner — <a href="#en-hero">details</a>.</td></tr>
+    <tr><td>Enhanced square images</td><td>"Shop by category" — <a href="#en-categories">details</a>.</td></tr>
+    <tr><td>Product collection</td><td>A collection banner with up to 4 product cards — <a href="#en-collections">details</a>.</td></tr>
+    <tr><td>Caps showcase</td><td>Two model photos and two promotional posters — <a href="#en-caps">details</a>.</td></tr>
+    <tr><td>Socks showcase</td><td>Two socks collections with campaign images and colours — <a href="#en-socks">details</a>.</td></tr>
+    <tr><td>Complete your look banner</td><td>A look photo with its pieces — <a href="#en-look">details</a>.</td></tr>
+    <tr><td>Featured products, Special offer + products, Featured product + products</td><td>Product tabs (e.g. "Best sellers").</td></tr>
+    <tr><td>Animated images with text, Quick links, Animated products with a background, Brands, Custom testimonials, Blog</td><td>Additional sections as your store needs.</td></tr>
+  </table></div>
+  <p>Supported Salla core sections: store features, fixed products, products slider, photos slider, fixed banners, testimonials, YouTube, square photos, and parallax background.</p>
+
+  <h2 id="en-hero">5. Main banner — "Enhanced animated images"</h2>
+  <ul>
+    <li><strong>Banner image</strong>, <strong>wide campaign image</strong> (fills the whole banner), <strong>mobile image</strong> (optional), <strong>background video</strong> (optional).</li>
+    <li><strong>Title</strong>, <strong>gold badge</strong> (optional, e.g. "Limited quantities"), <strong>description</strong>.</li>
+    <li><strong>Button text</strong> and <strong>button link</strong> — a category, a product, or a section on the same page such as <code>#hoodies-collection</code>.</li>
+    <li><strong>Remove overlay</strong> for light images with built-in text.</li>
+  </ul>
+  <p>On phones the image sits on top and the text below it, so they never overlap. Section options: <strong>in container</strong> and <strong>autoplay</strong>.</p>
+
+  <h2 id="en-categories">6. Shop by category and in-page links</h2>
+  <p><strong>Enhanced square images</strong>: a title, a section id, and cards with an image, title, text and link. Link a card to a Salla category or to a section on the page.</p>
+  <h3>In-page links</h3>
+  <ol class="steps">
+    <li>In the target section (e.g. "Product collection"), type a <strong>section id</strong>: one English word, no spaces, e.g. <code>hoodies-collection</code>.</li>
+    <li>In the card or banner button, set the link to <code>#hoodies-collection</code>. The page scrolls smoothly to that section.</li>
+  </ol>
+
+  <h2 id="en-collections">7. Product collections — "Product collection"</h2>
+  <ul>
+    <li><strong>Title</strong>, <strong>description</strong> and <strong>section id</strong>.</li>
+    <li><strong>Banner</strong>: shown whole at its own shape, never cropped, with a <strong>screen-reader description</strong>.</li>
+    <li><strong>Card shape</strong>: portrait 4:5 for upper-body photos, or tall 2:3 for full-length photos.</li>
+    <li><strong>Products</strong> (up to 4): name, model photo, and product page link.</li>
+  </ul>
+  <p>Add the section several times for different collections (e.g. hoodies, then pants).</p>
+
+  <h2 id="en-caps">8. Caps showcase</h2>
+  <p>A title, text, section id, and up to two caps, each with a <strong>name</strong>, a <strong>model photo</strong> (portrait, cap at the top), a <strong>promotional poster</strong> (shown whole, never cropped), and a <strong>link</strong>.</p>
+
+  <h2 id="en-socks">9. Socks showcase</h2>
+  <p>Shows up to two socks collections, each in its own card (never two collections in one card):</p>
+  <ul>
+    <li><strong>Collection name</strong> (e.g. AWAY or MAKE THE FUTURE).</li>
+    <li><strong>Campaign image</strong>: shown whole at 3:2, never cropped (e.g. 1536×1024 px), with a <strong>screen-reader description</strong>.</li>
+    <li><strong>Colours</strong>: choose from black, navy, gray and white; shown as named swatches under the image on phones and tablets.</li>
+    <li><strong>Link</strong>: choose the link type <strong>Product</strong> and pick the collection's product, or its category in Salla. The card then shows a "Shop Now" button.</li>
+  </ul>
+  <p class="note">With no link, the card shows "Coming soon" and is not clickable; no price or stock is shown. Add the link only once the product exists in Salla.</p>
+
+  <h2 id="en-look">10. Complete your look</h2>
+  <p>A title, text, button text and link, a background image (or images), a pieces title, and the <strong>pieces</strong>: each with a name, image, image position and product link.</p>
+
+  <h2 id="en-product">11. Product page and size guide</h2>
+  <ul>
+    <li><strong>Gallery</strong>: dots on phones, thumbnails on desktop, full-screen view on tap. Choose image fit (cover or contain) and zoom in the settings.</li>
+    <li><strong>Sticky add-to-cart on phones</strong>: price, quantity and "Add to cart" stay at the bottom of the screen ("Sticky add-to-cart and quantity" setting).</li>
+    <li><strong>Options</strong> in a collapsible panel; the size option appears as buttons.</li>
+    <li>A <strong>Notify me when available</strong> button on sold-out product cards, <strong>tags</strong>, and <strong>breadcrumbs</strong> — all from the settings.</li>
+  </ul>
+  <h3>Size guide</h3>
+  <ol class="steps">
+    <li>Theme settings → <strong>Size guide</strong>: choose the hoodie categories and the pants categories.</li>
+    <li>Enter measurements in centimetres for each size (S, M, L, XL): chest, length, shoulder and sleeve for hoodies; waist, hip and length for pants.</li>
+    <li>A "Find your size" link appears by the size title on products in those categories. Leave the fields empty until you have your real measurements.</li>
+  </ol>
+
+  <h2 id="en-contact">12. Contact details</h2>
+  <p>Theme settings → <strong>Contact details</strong>:</p>
+  <ul>
+    <li><strong>Contact mobile</strong> in international format (e.g. <code>+9665XXXXXXXX</code>).</li>
+    <li><strong>Contact email</strong>.</li>
+  </ul>
+  <p>They appear in the footer's "Contact us" column, in the desktop top bar when the header layout is "Default", and in the "My account" sheet on phones, as tap-to-call and email links. If a field is cleared, the contact details from your Salla store settings are used.</p>
+  <p class="note">Also update the contact details in your Salla store settings: Salla uses them on invoices, order messages and checkout.</p>
+
+  <h2 id="en-whatsapp">13. WhatsApp button</h2>
+  <ul>
+    <li><strong>Show floating WhatsApp button</strong>: on or off.</li>
+    <li><strong>Customer service WhatsApp number</strong>: digits only, international format, no <code>+</code> (e.g. <code>9665XXXXXXXX</code>).</li>
+  </ul>
+  <p>The green button sits in a corner of the screen and opens a WhatsApp chat. It moves aside automatically so it never covers headings, buttons or the add-to-cart bar. The same number appears in the contact details.</p>
+
+  <h2 id="en-footer">14. Footer and payment methods</h2>
+  <ul>
+    <li>Columns: store description, "Important links" (from your Salla footer menu), "Contact us".</li>
+    <li><strong>Payment methods</strong>: logos and names of only the methods enabled in your store, updated automatically from Salla. If none are enabled, the section is hidden.</li>
+  </ul>
+
+  <h2 id="en-lang">15. Arabic and English</h2>
+  <p>The theme is Arabic (right-to-left) and supports English. To show English, enable it in your Salla store settings, then fill in the English fields in the editor's sections.</p>
+
+  <h2 id="en-apps">16. Salla apps</h2>
+  <p>The theme provides HookSlots on the home, product, cart and search pages and in the header and footer, so Salla apps that add content in those places work.</p>
+
+  <h2 id="en-checklist">17. Pre-launch checklist</h2>
+  <ul>
+    <li>☐ Banner and collection images uploaded; texts and badge filled in Arabic and English.</li>
+    <li>☐ Card and button links work (categories, products, or <code>#id</code>).</li>
+    <li>☐ Socks showcase links point to existing products, or are left empty to show "Coming soon".</li>
+    <li>☐ Contact details and WhatsApp number are correct.</li>
+    <li>☐ Payment methods enabled in Salla.</li>
+    <li>☐ Previewed on phone and desktop.</li>
+  </ul>
+
+  <h2 id="en-support">18. Support</h2>
+  <ul>
+    <li>Email: <a href="mailto:lumen.sa@outlook.sa">lumen.sa@outlook.sa</a></li>
+    <li>Phone: <a href="tel:+966582367110">+966 58 236 7110</a></li>
+    <li>WhatsApp: <a href="https://wa.me/966582367110">wa.me/966582367110</a></li>
+    <li>Website: <a href="https://salla.sa/Lumen-0">salla.sa/Lumen-0</a></li>
+  </ul>
+  <p>We reply within two business days.</p>
+</section>
+
+<footer class="foot">LUMEN Signature — دليل ثيم سلة · Salla theme guide</footer>
+</main>
+
+<script>
+  // Language switch: #ar / #en in the address bar, so each language has a shareable link.
+  (function () {
+    var ar = document.getElementById('ar'), en = document.getElementById('en');
+    var toAr = document.getElementById('to-ar'), toEn = document.getElementById('to-en');
+    function show() {
+      var h = location.hash || '';
+      var isEn = h === '#en' || h.indexOf('#en-') === 0;
+      en.hidden = !isEn; ar.hidden = isEn;
+      document.documentElement.lang = isEn ? 'en' : 'ar';
+      document.documentElement.dir = isEn ? 'ltr' : 'rtl';
+      toEn.setAttribute('aria-current', String(isEn)); toAr.setAttribute('aria-current', String(!isEn));
+    }
+    window.addEventListener('hashchange', show); show();
+  })();
+</script>
+</body>
+</html>
